@@ -35,7 +35,8 @@ function pig_latin_sentences(text){
   }
   return hasil
 }
-
+rl.setPrompt('Please input your words to converted to pig latin: \n')
+rl.prompt()
 
 rl.on('line', (input) => {
   console.log(`Detected to convert to pig latin : ${input}`);
