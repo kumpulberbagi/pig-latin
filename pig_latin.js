@@ -9,18 +9,13 @@ const rl = readline.createInterface({
   Prompt: 'Pig Latin > '
 });
 
-rl.setPrompt("Pig Latin Word : ")
+rl.setPrompt("Please Pit your string : ")
 rl.prompt()
 
 rl.on('line', (line) => {
-  console.log(`Pg Latin Word: ${pigLatin_word(line)}`);
-
-  rl.setPrompt("Pig Latin Sentence :")
+  console.log(`Pig Latin Converstion : ${pigLatin_word(line)}`);
   rl.prompt()
 
-  rl.on('line', (str) => {
-    console.log(` Pig Latin Sentence: ${pigLatin_sentence(str)}`);
-  });
 });
 //
 
@@ -46,9 +41,10 @@ function pigLatin_word(str) {
         return convert+last.join('')+"ay";
       }
     }
-  } else{
-    return "Put Only One Word";
   }
+  else {
+      return pigLatin_sentence(str);
+    }
 }
 
 function pigLatin_sentence(sentence) {
