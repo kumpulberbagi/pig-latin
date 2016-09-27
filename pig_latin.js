@@ -26,6 +26,7 @@ function converSingleWord(word)
 
 function converCompleteSentence(kalimat)
 {
+
      var kalimat = kalimat.split(' ');
      var kalimatBaru = ''
      for(var index=0;index<kalimat.length;index++)
@@ -40,7 +41,21 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-rl.question('Input kata atau kalimat : ', (answer) => {
-  console.log('Hasil : ',converCompleteSentence(answer));
-  rl.close();
+// rl.question('Input kata atau kalimat : ', (answer) => {
+//   console.log('Hasil : ',converCompleteSentence(answer));
+//   rl.close();
+// });
+
+rl.setPrompt('Input kata atau kalimat : ')
+rl.prompt()
+
+rl.on('line', (input) => {
+  // console.log(`Received: ${input}`,converCompleteSentence(input));
+  if(input == "") {
+    rl.close();
+  } else {
+    console.log(converCompleteSentence(input));
+    rl.prompt()
+  }
+
 });
