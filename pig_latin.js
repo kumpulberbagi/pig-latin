@@ -9,8 +9,19 @@ const rl = readline.createInterface({
 rl.setPrompt("Masukkan Kata Disini?");
 rl.prompt();
 rl.on('line', (input) => {
-  console.log(conPigLatin(input));
+  console.log(conPigLatinKalimat(input));
 });
+var conPigLatinKalimat = function (kalimat) {
+  kalimat = kalimat.split(" ");
+  var gabung = [];
+  for (var i = 0; i < kalimat.length; i++) {
+    var x = conPigLatin(kalimat[i]);
+    gabung.push(x);
+  }
+  console.log(gabung.join(" "));
+  console.log("jumlah kalimat yang diubah: " + kalimat.length);
+}
+
 var conPigLatin = function (word) {
   word = word.toLowerCase();
   word = word.split("");
@@ -18,13 +29,11 @@ var conPigLatin = function (word) {
   var firstLetter = word.slice(0, 1);
   if (firstLetter == "a" || firstLetter == "i" || firstLetter == "u" || firstLetter == "e" || firstLetter == "o") {
     word = word.join("");
-    console.log(word)
     return word;
   } else {
     word.splice(0, 1);
     word = word.join("");
     word = (word + firstLetter + "ay");
-    console.log(word)
     return word
   }
 }
