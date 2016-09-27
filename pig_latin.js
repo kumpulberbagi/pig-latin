@@ -9,8 +9,9 @@ const rl = readline.createInterface({
 rl.setPrompt("Masukkan Kata Disini?");
 rl.prompt();
 rl.on('line', (input) => {
-  console.log(conPigLatinKalimat(input));
+  conPigLatinKalimat(input);
 });
+
 var conPigLatinKalimat = function (kalimat) {
   kalimat = kalimat.split(" ");
   var gabung = [];
@@ -20,6 +21,7 @@ var conPigLatinKalimat = function (kalimat) {
   }
   console.log(gabung.join(" "));
   console.log("jumlah kalimat yang diubah: " + kalimat.length);
+  return;
 }
 
 var conPigLatin = function (word) {
