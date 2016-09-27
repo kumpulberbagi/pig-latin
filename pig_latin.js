@@ -43,7 +43,7 @@ function pig_latin_word(line) {
   var result = "";
   for (var i = 0; i < vowel.length; i++) {
     if(arrWord[0] === vowel[i]) {
-      result += arrWord.join("") + "ay";
+      result += arrWord.join("");
     }
     else {
       var consonan = arrWord.splice(0, 1).join("");
@@ -64,11 +64,14 @@ const rl = readline.createInterface({
 
 rl.setPrompt("Enter the word you want to convert, or 'quit' to close the program : ");
 
+rl.prompt();
+
 rl.on('line', (line) => {
   if (line === "quit") {
     rl.close();
   }
   else {
   console.log("Original word : line || Pig latin : ", pig_latin(line));
-  rl.prompt(); }
+  rl.prompt();
+  }
 });
